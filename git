@@ -1,0 +1,28 @@
+## github add ssh
+  
+* [配置 user name 和 user email]
+  $ git config --global user.name "example"
+  $ git config --global user.email "example@qq.com"
+
+* [生成ssh key]
+  $ ssh-keygen -t rsa -C "example@qq.com"
+  第一个提示：ssh文件的保存路径， 直接回车采用默认即可
+  第二个提示：输入密码
+  第三个提示：重复输入密码
+  最后得到了两个文件：id_rsa和id_rsa.pub
+  
+* [add ssh key to github]
+  登录github，在settings -> SSH Keys中添加ssh密钥
+  添加时，将本地文件id_rsa.pub打开，将内容粘贴到网站输框中提交即可。
+  
+  
+## git的操作
+  
+  $ git clone 项目地址
+  $ git pull
+  $ git add .   (提示：提前添加.gitignore文件，过滤不用提交的内容）
+  $ git status
+  $ git commit -m "第一次提交"
+  $ git push -u origin master
+  
+  
