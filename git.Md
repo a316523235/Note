@@ -87,61 +87,61 @@
 
     3、创建并切换至临时分支：$ git branch -b bug001
 
-  __4、修复并提交bug__
+    4、修复并提交bug
 
-    4.1、$ git add <bugfile>
+      4.1、$ git add <bugfile>
 
-    4.2、$ git commit -m '修复bug001'
+      4.2、$ git commit -m '修复bug001'
 
-    4.3、$ git checkout master
+      4.3、$ git checkout master
 
-    4.4、$ git merge -no-ff -m '合并修复bug001' bug001
+      4.4、$ git merge -no-ff -m '合并修复bug001' bug001
 
-    4.5、$ git branch -d bug001
+      4.5、$ git branch -d bug001
 
     5、切回工作分支：$ git chckout dev
 
     6、查看暂存的快照(工作现场)：$ git stash list
 
-  __7、恢复快照__
+    7、恢复快照
 
-    7.1、恢复快照：$ git stash apply
+      7.1、恢复快照：$ git stash apply
 
-    7.2、删除快照：$ git stash drop
+      7.2、删除快照：$ git stash drop
 
-    * 捷命令合并+删除快照：$ git stash pop
+      * 捷命令合并+删除快照：$ git stash pop
 
 ## 远程仓库
   
     查看远程库信息：$ git remote  （详细信息：$ git remote -v)
 
-  __一般推送远程仓库版本__
+    一般推送远程仓库版本
 
-    * master分支是主分支，因此要时刻与远程同步；
+      * master分支是主分支，因此要时刻与远程同步；
 
-    * dev分支是开发分支，团队成员共用分支，需要与远程同步；
+      * dev分支是开发分支，团队成员共用分支，需要与远程同步；
 
-    * bug分支只用于在本地修复bug，不用推到远程；
+      * bug分支只用于在本地修复bug，不用推到远程；
 
-    * feature分支是否推到远程，取决于合作开发还是个人开发;
+      * feature分支是否推到远程，取决于合作开发还是个人开发;
 
 ## 标签管理
 
     1、在当前分支上打标签（默认打在最近的commit)：$ git tag <tagname>
 
-  __2、给历史commit打标签__
+    2、给历史commit打标签
 
-    2.1、查看commit历史：$ git log --pretty=online --abbrev-commit
+      2.1、查看commit历史：$ git log --pretty=online --abbrev-commit
 
-    2.2、通过commit_id打标签：$ git tag <tagname> <commit_id>
+      2.2、通过commit_id打标签：$ git tag <tagname> <commit_id>
 
-    * 打标签 + commit_id + 说明：$ git tag -a <tagname> -m "version 0.1 released" <commit_id>
+      * 打标签 + commit_id + 说明：$ git tag -a <tagname> -m "version 0.1 released" <commit_id>
 
-  __3、查看标签__
+    3、查看标签
 
-    * 查看标签：$ git tag
+      * 查看标签：$ git tag
 
-    * 查看指定标签及说明: $ git show <tagname>
+      * 查看指定标签及说明: $ git show <tagname>
 
     4、推送本地标签：$ git push origin <tagname>
 
@@ -154,21 +154,21 @@
 
 ## 其它配置
 
-     1、git显示颜色：$ git config --global color.ui true
+    1、git显示颜色：$ git config --global color.ui true
 
-     2、忽略特殊文件：添加.gitignore文件
+    2、忽略特殊文件：添加.gitignore文件
 
-   __3、配置别名__
+    3、配置别名
 
-    * 配置别名：$ git config --global alias.<alias> <command>
+      * 配置别名：$ git config --global alias.<alias> <command>
 
-    * 删除别名：
+      * 删除别名：
 
-    * 示例配置st表示status：$ git config --global alias.st status, 使用时输入: $ git st;
+      * 示例配置st表示status：$ git config --global alias.st status, 使用时输入: $ git st;
 
-    * 示例配置命令git reset HEAD file(可以把暂存区的修改撤销掉)为unstage：$ git config --global alias.unstage 'reset HEAD' 使用方法：$ git unstage;
+      * 示例配置命令git reset HEAD file(可以把暂存区的修改撤销掉)为unstage：$ git config --global alias.unstage 'reset HEAD' 使用方法：$ git unstage;
 
-    * 丧心病狂的配置(听说这命令很好用)：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+      * 丧心病狂的配置(听说这命令很好用)：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
     4、删除配置： 当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中，找到alias删除对应内容
 
