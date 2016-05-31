@@ -20,72 +20,72 @@
   
   
 ## git的基本操作
+    
+    克隆：$ git clone <url>
   
-  克隆：$ git clone <url>
-  
-  更新：$ git pull
+    更新：$ git pull
 
-  加入暂存区：$ git add <file>
+    加入暂存区：$ git add <file>
   
-  加入暂存区(所有文件)：$ git add .   (提示：提前添加.gitignore文件，过滤不用提交的内容）
+    加入暂存区(所有文件)：$ git add .   (提示：提前添加.gitignore文件，过滤不用提交的内容）
   
-  查看状态：$ git status
+    查看状态：$ git status
   
-  提交：$ git commit -m "第一次提交"
+    提交：$ git commit -m "第一次提交"
   
-  推送至远程仓储：$ git push -u origin master
+    推送至远程仓储：$ git push -u origin master
 
 ## 版本回退
 
-  查看日志：$ git log
+    查看日志：$ git log
 
-  回到指定版本：$ git reset --hard <commit_id>
+    回到指定版本：$ git reset --hard <commit_id>
 
-  回到上个版本：$ git reset --hard HEAD^
+    回到上个版本：$ git reset --hard HEAD^
 
-  查看命令历史：$ git reflog
+    查看命令历史：$ git reflog
 
 ## 撤销修改
 
-  场景1：撤销工作区的修改 $ git checkout -- <file>
+    场景1：撤销工作区的修改 $ git checkout -- <file>
 
-  场景2：撤销已添加到暂存区的修改 $ git reset Head <file>
+    场景2：撤销已添加到暂存区的修改 $ git reset Head <file>
 
-  场景3：已提交到版本库，使用上面的版本回退功能
+    场景3：已提交到版本库，使用上面的版本回退功能
 
 ## 删除文件
 
-  本地删除：$ rm <file>
+    本地删除：$ rm <file>
 
-  从版本库删除：$ git rm <file>
+    从版本库删除：$ git rm <file>
 
 ## 分支管理
 
-  查看分支：$ git branch
+    查看分支：$ git branch
 
-  创建分支：$ git branch <name>
+    创建分支：$ git branch <name>
 
-  切换分支：$ checkout <name>
+    切换分支：$ checkout <name>
 
-  创建+切换分支：$ checkout -b <name>
+    创建+切换分支：$ checkout -b <name>
 
-  合并某分支到当前分支(快速合并，日志中看不出合并记录)：$ git merge <name>
+    合并某分支到当前分支(快速合并,日志无合并记录)：$ git merge <name>
 
-  合并某分支到当前分支(普通合并，会创建一个新的commit，日志中能看出做过合并)：$ git merge --no-ff -m "测试普通合并" <name>
+    合并某分支到当前分支(普能合并,会创建一个新的commit,日志有合并记录)：$ git merge --no-ff -m "测试普通合并" <name>
 
-  删除分支：$ git branch -d <name>
+    删除分支：$ git branch -d <name>
 
-  强行删除未合并过的分支：$ git brach -D <name>
+    强行删除未合并过的分支：$ git brach -D <name>
 
-  查看分支合并图：$ git log --graph
+    查看分支合并图：$ git log --graph
 
 ## 主干bug修改(临时紧急修改)
   
-  1、暂存当前分支的工作现场(假定当前分支为dev,未被git管理的文件不会被保存)：$ git stash
+    1、暂存当前分支的工作现场(假定当前分支为dev,未被git管理的文件不会被保存)：$ git stash
 
-  2、切换至主干：$ checkout master
+    2、切换至主干：$ checkout master
 
-  3、创建并切换至临时分支：$ git branch -b bug001
+    3、创建并切换至临时分支：$ git branch -b bug001
 
   __4、修复并提交bug__
 
@@ -99,9 +99,9 @@
 
     4.5、$ git branch -d bug001
 
-  5、切回工作分支：$ git chckout dev
+    5、切回工作分支：$ git chckout dev
 
-  6、查看暂存的快照(工作现场)：$ git stash list
+    6、查看暂存的快照(工作现场)：$ git stash list
 
   __7、恢复快照__
 
@@ -113,7 +113,7 @@
 
 ## 远程仓库
   
-  查看远程库信息：$ git remote  （详细信息：$ git remote -v)
+    查看远程库信息：$ git remote  （详细信息：$ git remote -v)
 
   __一般推送远程仓库版本__
 
@@ -127,7 +127,7 @@
 
 ## 标签管理
 
-  1、在当前分支上打标签（默认打在最近的commit)：$ git tag <tagname>
+    1、在当前分支上打标签（默认打在最近的commit)：$ git tag <tagname>
 
   __2、给历史commit打标签__
 
@@ -143,34 +143,34 @@
 
     * 查看指定标签及说明: $ git show <tagname>
 
-  4、推送本地标签：$ git push origin <tagname>
+    4、推送本地标签：$ git push origin <tagname>
 
-  5、推送所有未推送过的本地标签：$ git push origin --tags
+    5、推送所有未推送过的本地标签：$ git push origin --tags
 
-  6、删除本地标签：$ git tag -d <tagname>
+    6、删除本地标签：$ git tag -d <tagname>
 
-  7、删除远程标签：$ git push origin :refs/tags/<tagname>
+    7、删除远程标签：$ git push origin :refs/tags/<tagname>
 
 
 ## 其它配置
 
-   1、git显示颜色：$ git config --global color.ui true
+     1、git显示颜色：$ git config --global color.ui true
 
-   2、忽略特殊文件：添加.gitignore文件
+     2、忽略特殊文件：添加.gitignore文件
 
    __3、配置别名__
 
-     * 配置别名：$ git config --global alias.<alias> <command>
+    * 配置别名：$ git config --global alias.<alias> <command>
 
-     * 删除别名：
+    * 删除别名：
 
-     * 示例配置st表示status：$ git config --global alias.st status, 使用时输入: $ git st;
+    * 示例配置st表示status：$ git config --global alias.st status, 使用时输入: $ git st;
 
-     * 示例配置命令git reset HEAD file(可以把暂存区的修改撤销掉)为unstage：$ git config --global alias.unstage 'reset HEAD' 使用方法：$ git unstage;
+    * 示例配置命令git reset HEAD file(可以把暂存区的修改撤销掉)为unstage：$ git config --global alias.unstage 'reset HEAD' 使用方法：$ git unstage;
 
-     * 丧心病狂的配置(听说这命令很好用)：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    * 丧心病狂的配置(听说这命令很好用)：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-  4、删除配置： 当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中，找到alias删除对应内容
+    4、删除配置： 当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中，找到alias删除对应内容
 
 ## 搭建Git服务器
 
