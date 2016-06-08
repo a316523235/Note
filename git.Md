@@ -175,3 +175,15 @@
 ## 搭建Git服务器
 
   * 待完善
+
+## 解决冲突
+
+    1、保用本地修改或手动修改合并后的内容
+      git ptash
+      git pull
+      git stash pop
+      然后可以使用git diff -w +文件名 来确认代码自动合并的情况
+    
+    2、用代码库中的文件完全覆盖本地工作版本
+      git reset --hard
+      git pull
