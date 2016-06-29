@@ -171,6 +171,8 @@
       * 丧心病狂的配置(听说这命令很好用)：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
     4、删除配置： 当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中，找到alias删除对应内容
+    
+    5、git config --global core.autocrlf true  签出代码的时候自动转换换行符为windows的格式，避免出现文件内容没变化但是文件被显示有修改的情况
 
 ## 搭建Git服务器
 
