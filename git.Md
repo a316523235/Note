@@ -34,6 +34,8 @@
     提交：$ git commit -m "第一次提交"
   
     推送至远程仓储：$ git push -u origin master
+    
+    强制推送至远程仓储：$ git push -f origin master
 
 ## 版本回退
 
