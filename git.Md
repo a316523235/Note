@@ -64,6 +64,8 @@
 ## 分支管理
 
     查看分支：$ git branch
+    
+    查看远程分支：$ git branch -a
 
     创建分支：$ git branch <name>
 
