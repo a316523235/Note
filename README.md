@@ -4,6 +4,7 @@
   
 ## 目录
 
-* [git](git.Md)
+* [git](git.md)
 * node
 * [服务](service.md)
+* [正则](regex.md)
