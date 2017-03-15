@@ -11,5 +11,6 @@
   * /[a-zA-Z0-9]+/  数字与字母
   * /[\u4e00-\u9fa5a-zA-Z0-9_]+/  字符字母数字下划线
   * /[^\x00-\xff]/  双字节字符（常用于中文检测）
-  
-  
+  * /(\+86)?1[34578]\d{9}/  手机号
+  * /(http|https)://[a-z|A-Z|0-9]+\\.(tmall|taobao|yao.[0-9]*)\\.(com|hk)(?=.*id)/i 淘宝或天猫
+  * /seller_?id=(\w*).*activity_?id=(\w*)|activity_?id=(\w*).*seller_?id=(\w*)/i  优惠券链接
