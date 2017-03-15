@@ -14,3 +14,6 @@
   * /(\+86)?1[34578]\d{9}/  手机号
   * /(http|https)://[a-z|A-Z|0-9]+\\.(tmall|taobao|yao.[0-9]*)\\.(com|hk)(?=.*id)/i 淘宝或天猫
   * /seller_?id=(\w*).*activity_?id=(\w*)|activity_?id=(\w*).*seller_?id=(\w*)/i  优惠券链接
+  * /((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)/ ip
+  * /(http|https)://[a-z|A-Z]+\\.(.+)\\.(com|hk).+[?|&]id=(\\d+)/i 获取商品链接中的id
+  * /*|and|exec|insert|select|delete|update|count|master|truncate|declare|char(|mid(|chr(|'|--|;/ 防注入过滤字符
