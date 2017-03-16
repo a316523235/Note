@@ -2,7 +2,6 @@
   * apt-get nginx
   * nginx -t 检测并查看配置文件是否正确，并提示配置文件路径
   * vi newsite.conf 在配置文件同级目录下，创建新站点的配置文件<br>
-    文件内容
     ```js
     server {
 	  listen 80;
