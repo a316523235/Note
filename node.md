@@ -1,6 +1,6 @@
-#node
+# node
 
-  # 安装
+  ## 安装
 
     * apt-get install nodejs
     * apt-get install npm

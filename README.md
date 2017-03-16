@@ -5,7 +5,7 @@
 ## 目录
 
 * [git](git.md)
-* node
+* [node](node.md)
 * [服务](service.md)
 * [正则](regex.md)
 * [nginx](nginx.md)
