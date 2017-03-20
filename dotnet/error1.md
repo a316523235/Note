@@ -25,7 +25,7 @@
 
     The type String cannot be constructed. You must configure the container to supply this value
   
-    <font color=red>指必须配置unity使用的内容</font>
+    指必须配置unity使用的内容
 
 ### 分析2：
 
@@ -43,13 +43,11 @@
   
     Resolving System.String,AppSettings.ScmApiDomain
   
-    <font color=red>指具体需要提供值的代码位置，根据提示一层层的找出未错误的地址</font>
+    指具体需要提供值的代码位置，根据提示一层层的找出未错误的地址
 
 ### 分析3：
 
     结论及实际原因：
-  
-    <font color="red">
   
     BLLProductDetail 类中使用了
   
@@ -58,7 +56,5 @@
     public string ScmApiDomain { get; set; }
   
     但config中未配置ScmApiDomain，导致整个程序出错
-  
-    </font>
 
 
