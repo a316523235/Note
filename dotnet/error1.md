@@ -1,5 +1,6 @@
-config文件中未配置值
+## config文件中未配置值
 
+```
 {
   "Message": "出现错误。",
   "ExceptionMessage": "尝试创建“ProductDetailsController”类型的控制器时出错。请确保控制器具有无参数公共构造函数。",
@@ -18,29 +19,46 @@ config文件中未配置值
     }
   }
 }
+```
 
-分析1：
-The type String cannot be constructed. You must configure the container to supply this value
-<font color=red>指必须配置unity使用的内容</font>
+### 分析1：
 
-分析2：
-You must configure the container to supply this value.
-At the time of the exception, the container was:
-Resolving Api.Product.Service.Controllers.ProductDetailsController,(none)
-Resolving value for property ProductDetailsController.ProductBll
-Resolving Api.Business.ScmGoods.BLLProductDetail,(none)
-Resolving value for property BLLProductDetail.ScmApiDomain
-Resolving System.String,AppSettings.ScmApiDomain
-<font color=red>指具体需要提供值的代码位置，根据提示一层层的找出未错误的地址</font>
+    The type String cannot be constructed. You must configure the container to supply this value
+  
+    <font color=red>指必须配置unity使用的内容</font>
 
+### 分析2：
 
-分析3：
-结论及实际原因：
-<font color=red>
-BLLProductDetail 类中使用了
-[Dependency("AppSettings.ScmApiDomain")]
-public string ScmApiDomain { get; set; }
-但config中未配置ScmApiDomain，导致整个程序出错
-</font>
+    You must configure the container to supply this value.
+  
+    At the time of the exception, the container was:
+  
+    Resolving Api.Product.Service.Controllers.ProductDetailsController,(none)
+  
+    Resolving value for property ProductDetailsController.ProductBll
+  
+    Resolving Api.Business.ScmGoods.BLLProductDetail,(none)
+  
+    Resolving value for property BLLProductDetail.ScmApiDomain
+  
+    Resolving System.String,AppSettings.ScmApiDomain
+  
+    <font color=red>指具体需要提供值的代码位置，根据提示一层层的找出未错误的地址</font>
+
+### 分析3：
+
+    结论及实际原因：
+  
+    <font color="red">
+  
+    BLLProductDetail 类中使用了
+  
+    [Dependency("AppSettings.ScmApiDomain")]
+  
+    public string ScmApiDomain { get; set; }
+  
+    但config中未配置ScmApiDomain，导致整个程序出错
+  
+    </font>
 
 
