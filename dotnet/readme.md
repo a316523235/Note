@@ -6,4 +6,4 @@
 
 ### 错误分析
 
-* [未配置unity内容](dotnet/error1.md)
+* [未配置unity内容](error1.md)
