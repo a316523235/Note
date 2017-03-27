@@ -193,3 +193,11 @@
     2、用代码库中的文件完全覆盖本地工作版本
       git reset --hard
       git pull
+      
+ ## 删除远程分支已删除的本地分支(update by 2017-02-27)
+   
+    1、git remote show origin
+    
+    2、git remote prune
+    
+    3、状态为stale的本地分支将被删除
