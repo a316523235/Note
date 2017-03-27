@@ -198,7 +198,7 @@
    
     1、git remote show origin
     
-    2、git remote prune
+    2、git remote prune origin
     
     3、状态为stale的本地分支将被删除
       
