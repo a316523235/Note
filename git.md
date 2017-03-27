@@ -196,8 +196,9 @@
       
  ## 删除远程分支已删除的本地分支(update by 2017-02-27)
    
-    1、git remote show origin
+    1、git remote show origin
     
-    2、git remote prune
+    2、git remote prune
     
-    3、状态为stale的本地分支将被删除
+    3、状态为stale的本地分支将被删除
+      
