@@ -202,3 +202,11 @@
     
     3、状态为stale的本地分支将被删除
       
+## 查看历史修改
+
+    1. git log filename   可以看到fileName相关的commit记录
+    
+    2. git log -p filename  可以显示每次提交的diff
+    
+    3. git show c5e69804bbd9725b5dece57f8cbece4a96b9f80b filename 只看某次提交中的某个文件变化，可以直接加上fileName
+    
