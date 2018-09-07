@@ -45,7 +45,7 @@ Route::any('foo', function () {
 ####CSRF保护
 HTML表单向`web`路由文件中定义的POST、PUT或DELETE路由提交内容时，应当包括CSRF令牌字段。否则，请求将被拒绝。您可以在CSRF文档中阅读有关[CSRF保护的更多信息](https://laravel.com/docs/5.7/csrf)：
 
-```php
+```html
 <form method="POST" action="/profile">
     @csrf
     ...
