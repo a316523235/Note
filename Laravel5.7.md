@@ -1,7 +1,7 @@
 
-#Laravel5.7
-##基础
-##基础路由
+# Laravel5.7
+## 基础
+### 基础路由
 最基本的Laravel路由接受URI和`Closure`，提供了一种非常简单且富有表现力的方法来定义路径：
 
 ```php
@@ -9,7 +9,7 @@ Route::get('foo', function () {
     return 'Hello World';
 });
 ```
-####默认路由文件
+#### 默认路由文件
 所有Laravel路由都在路径文件中定义，这些文件位于routes目录中。这些文件由框架自动加载。`routes/web.php`定义了适用于您的Web界面的路由,这些路由分配给`web`中间件组，后者提供会话状态和CSRF保护等功能。`webroutes/api.php`路由是无状态的，并被分配`api`中间件组。
 
 对于大多数应用程序，您将首先在`routes/web.php`文件中定义路由。`routes/web.php`中定义的路由可以通过在浏览器中输入定义路由的网址进行访问。例如，您可以通过导航到浏览器来访问以下路线：http://your-app.test/user
@@ -19,7 +19,7 @@ Route::get('/user', 'UserController@index');
 ```
 `routes/api.php`文件中定义的路由嵌套在`RouteServiceProvider`路由组中。在此组中，`/api`将自动应用URI前缀，因此您无需手动将其应用于文件中的每个路由。您可以通过修改`RouteServiceProvider`类来修改前缀和其他路由组选项。
 
-####可用路由器方法
+#### 可用路由器方法
 路由器允许您注册响应任何HTTP方式的路由：
 
 ```php
@@ -42,7 +42,7 @@ Route::any('foo', function () {
 });
 ```
 
-####CSRF保护
+#### CSFR保护
 HTML表单向`web`路由文件中定义的POST、PUT或DELETE路由提交内容时，应当包括CSRF令牌字段。否则，请求将被拒绝。您可以在CSRF文档中阅读有关[CSRF保护的更多信息](https://laravel.com/docs/5.7/csrf)：
 
 ```html
@@ -51,14 +51,14 @@ HTML表单向`web`路由文件中定义的POST、PUT或DELETE路由提交内容�
     ...
 </form>
 ```
-####重定向路由
+#### 重定向路由
 如果要重定向到另一个URI的路由，则可以使用`Route::redirect`方法。此方法提供了方便的快捷方式，因此您无需为执行简单重定向定义完整路由或控制器：
 
 ```php
 Route::redirect('/here', '/there', 301);
 ```
 
-####查看路线
+#### 查看路线
 如果您的路线只需要返回视图，则可以使用`Route::view`方法。与`redirect`方法一样，`view`方法提供了一个简单的快捷方式，因此您无需定义完整路径或控制器。该方法接受URI作为其第一个参数，并将视图名称作为其第二个参数。此外，您可以提供一组数据作为可选的第三个参数传递给视图：
 
 ```php
@@ -67,9 +67,9 @@ Route::view('/welcome', 'welcome');
 Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
 ```
 
-###路线参数
+### 路线参数
 
-####必需参数
+#### 必需参数
 当然，有时您需要捕获路线中的URI段。例如，您可能需要从URL捕获用户的ID。您可以通过定义路由参数来执行此操作：
 
 ```php
@@ -87,7 +87,7 @@ Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
 路径参数始终包含在`{}`内，并且应包含字母字符，并且可能不包含`-`字符。使用下划线（`_`）代替`-`。路由参数根据其顺序注入到路由回调/控制器回调，控制器参数的名称无关紧要。
 
 
-####可选参数
+#### 可选参数
 有时您可能需要指定路由参数，但可以选择存在该路由参数。您可以在参数名称后面放置一个`?`标记。确保为路由的相应变量赋予默认值：
 
 ```php
