@@ -1,7 +1,7 @@
-#  Laravel5.7
-##  基础
-###  基本路由
 
+#Laravel5.7
+##基础
+##基础路由
 最基本的Laravel路由接受URI和`Closure`，提供了一种非常简单且富有表现力的方法来定义路径：
 
 ```php
@@ -9,7 +9,7 @@ Route::get('foo', function () {
     return 'Hello World';
 });
 ```
-#### 默认路由文件
+####默认路由文件
 所有Laravel路由都在路径文件中定义，这些文件位于routes目录中。这些文件由框架自动加载。`routes/web.php`定义了适用于您的Web界面的路由,这些路由分配给`web`中间件组，后者提供会话状态和CSRF保护等功能。`webroutes/api.php`路由是无状态的，并被分配`api`中间件组。
 
 对于大多数应用程序，您将首先在`routes/web.php`文件中定义路由。`routes/web.php`中定义的路由可以通过在浏览器中输入定义路由的网址进行访问。例如，您可以通过导航到浏览器来访问以下路线：http://your-app.test/user
