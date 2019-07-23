@@ -3,52 +3,49 @@
 /**
  * 归并排序
  * @param array $arr
- * @return array
  */
-function mergeArray($arr) {
+function mergeArray(&$arr) {
     if(count($arr) == 1) {
-        return $arr;
+        return;
     }
     //数组一分为二
     $mod = ceil(count($arr) / 2);
     $left = array_slice($arr, 0, $mod);
     $right = array_slice($arr, $mod, count($arr) - $mod);
 
-    //分开的数组继续进行归并排序
-    $split_left = mergeArray($left);
-    $split_right = mergeArray($right);
+    //对左右数组进行归并排序
+    mergeArray($left);
+    mergeArray($right);
 
-    //对已排序的左右数组进行合并
-    $merged = buildArray($split_left, $split_right);
-    return $merged;
+    //合并并排序左右数组
+    buildArray($arr, $left, $right);
 }
 
 /**
  * 两个已排序数据进行排序合并
+ * @param array $arr 原始数组
  * @param array $left 左
  * @param array $right 右
- * @return array 合并结果
  */
-function buildArray($left, $right) {
+function buildArray(&$arr, $left, $right) {
     $lCnt = count($left);
     $rCnt = count($right);
-    $i = $j = 0;
-    $result = [];
+    $index = $i = $j = 0;
+    $arr = [];
     while ($i < $lCnt || $j < $rCnt) {
-        //左边小于等于 || 右边已全部加入完
+        //右边已全部完成 || 左边小于等于
         while ($i < $lCnt && ($j == $rCnt || $left[$i] <= $right[$j])) {
-            $result[] = $left[$i++];
+            $arr[$index++] = $left[$i++];
         }
-        //右边小 || 左边已全部加入完
+        //左边已全部完成 || 右边小
         while ( $j < $rCnt && ($i == $lCnt || $right[$j] < $left[$i])) {
-            $result[] = $right[$j++];
+            $arr[$index++] = $right[$j++];
         }
     }
-    return $result;
 }
 
 
 
 $arr = [-1, 6, 7, 8, 9, 11, 1, 2, 4, 3, -2];
-$result = mergeArray($arr);
-print_r($result);
+mergeArray($arr);
+print_r($arr);
