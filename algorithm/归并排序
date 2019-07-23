@@ -2,50 +2,52 @@
 
 /**
  * 归并排序
- * @param array $arr
+ * @param $arr
  */
-function mergeArray(&$arr) {
+function mergeSort(&$arr) {
     if(count($arr) == 1) {
         return;
     }
-    //数组一分为二
-    $mod = ceil(count($arr) / 2);
-    $left = array_slice($arr, 0, $mod);
-    $right = array_slice($arr, $mod, count($arr) - $mod);
+    //一分为二
+    $middle = ceil(count($arr) / 2);
+    $left = array_slice($arr, 0, $middle);
+    $right = array_slice($arr, $middle);
 
-    //对左右数组进行归并排序
-    mergeArray($left);
-    mergeArray($right);
+    //左右数组进行归并排序
+    mergeSort($left);
+    mergeSort($right);
 
     //合并并排序左右数组
-    buildArray($arr, $left, $right);
+    merge($arr, $left, $right);
 }
 
 /**
- * 两个已排序数据进行排序合并
+ * 合并并排序数组
  * @param array $arr 原始数组
- * @param array $left 左
- * @param array $right 右
+ * @param array $left 左数组
+ * @param array $right 右数组
  */
-function buildArray(&$arr, $left, $right) {
+function merge(&$arr, $left, $right) {
+    $index = $i = $j = 0;
     $lCnt = count($left);
     $rCnt = count($right);
-    $index = $i = $j = 0;
-    $arr = [];
-    while ($i < $lCnt || $j < $rCnt) {
-        //右边已全部完成 || 左边小于等于
-        while ($i < $lCnt && ($j == $rCnt || $left[$i] <= $right[$j])) {
-            $arr[$index++] = $left[$i++];
-        }
-        //左边已全部完成 || 右边小
-        while ( $j < $rCnt && ($i == $lCnt || $right[$j] < $left[$i])) {
-            $arr[$index++] = $right[$j++];
-        }
+
+    //哪个小取哪个
+    while($i < $lCnt && $j < $rCnt) {
+        $arr[$index++] = $left[$i] <= $right[$j] ? $left[$i++] : $right[$j++];
+    }
+
+    //取左数组剩余的数据
+    while ($i < $lCnt) {
+        $arr[$index++] = $left[$i++];
+    }
+
+    //取右数组剩余的数据
+    while ($j < $rCnt) {
+        $arr[$index++] = $right[$j++];
     }
 }
 
-
-
 $arr = [-1, 6, 7, 8, 9, 11, 1, 2, 4, 3, -2];
-mergeArray($arr);
+mergeSort($arr);
 print_r($arr);
