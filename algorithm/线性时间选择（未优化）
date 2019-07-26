@@ -1,0 +1,52 @@
+### 例子
+给定线性序集中n个元素和一个整数k，1<= k <= n，要求找出这n个元素中第k小的元素。
+
+### 算法思路
+参考快速排序，在每轮的排序后只排包含第k个元素的部份。
+
+### 代码实现
+``` php
+<?php
+
+function lineSearch(&$arr, $start, $end, $k) {
+    if($start >= $end) {
+        return;
+    }
+    $i = $start;
+    $j = $end;
+    $p = $arr[$i];
+    while($j > $i) {
+        while ($j > $i && $arr[$j] >= $p) {
+            $j--;
+        }
+        if($j > $i) {
+            swap($arr, $i, $j);
+        }
+        while ($j > $i && $arr[$i] <= $p) {
+            $i++;
+        }
+        if($j > $i) {
+            swap($arr, $i, $j);
+        }
+
+        print_r($arr);
+    }
+
+    if($k > $i) {
+        lineSearch($arr, $i + 1, $end, $k);
+    } else {
+        lineSearch($arr, $start, $i, $k);
+    }
+}
+
+function swap(&$arr, $i, $j) {
+    $temp = $arr[$i];
+    $arr[$i] = $arr[$j];
+    $arr[$j] = $temp;
+}
+
+$arr = [9, - 5, -2, 5, 4, 6, -3, 7, 1];
+$k = 3;
+lineSearch($arr, 0, count($arr) - 1, $k);
+print_r($arr);
+```
