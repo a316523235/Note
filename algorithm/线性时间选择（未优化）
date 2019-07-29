@@ -8,6 +8,8 @@
 ``` php
 <?php
 
+<?php
+
 function lineSearch(&$arr, $start, $end, $k) {
     if($start >= $end) {
         return;
@@ -47,6 +49,8 @@ function swap(&$arr, $i, $j) {
 
 $arr = [9, - 5, -2, 5, 4, 6, -3, 7, 1];
 $k = 3;
-lineSearch($arr, 0, count($arr) - 1, $k);
+$k_index = $k - 1;
+lineSearch($arr, 0, count($arr) - 1, $k_index);
 print_r($arr);
+print_r($arr[$k_index]);
 ```
