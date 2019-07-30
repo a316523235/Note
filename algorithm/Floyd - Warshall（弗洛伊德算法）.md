@@ -1,7 +1,7 @@
 ### 说明
 利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法
 
-引用：
+资料：
 
 https://blog.csdn.net/yuewenyao/article/details/81021319
 
