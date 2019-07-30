@@ -23,18 +23,11 @@ function floyd(&$arr) {
     $n = 0;
 
     for (; $n < $len; $n++) {
+//        print_r("第{$n}轮\n");
         for ($i = 0; $i < $len; $i++) {
             for ($j = 0; $j < $len; $j++) {
-                if($arr[$i][$n] + $arr[$n][$j] < $arr[$i][$j]) {
-                    $arr[$i][$j] = $arr[$i][$n] + $arr[$n][$j];
-                }
-            }
-        }
-    }
-
-    for (; $n < $len; $n++) {
-        for ($i = 0; $i < $len; $i++) {
-            for ($j = 0; $j < $len; $j++) {
+//                print_r("\n\n");
+//                show($arr, $i, $j, $n);   //显示流程图
                 if($arr[$i][$n] + $arr[$n][$j] < $arr[$i][$j]) {
                     $arr[$i][$j] = $arr[$i][$n] + $arr[$n][$j];
                 }
@@ -43,8 +36,41 @@ function floyd(&$arr) {
     }
 }
 
+/**
+ * 显示流程图
+ * @param $arr
+ * @param int $target_i
+ * @param int $target_j
+ * @param int $target_n
+ */
+function show($arr, $target_i = 0, $target_j = 0, $target_n = 0) {
+    $len = count($arr);
+    for ($i = 0; $i < $len; $i++) {
+        for ($j = 0; $j < $len; $j++) {
+            $temp = "...   ";
+            if($i === $target_i && $j == $target_j) {
+                $temp[1] = 'X';
+            }
+
+            if(($i ===$target_i && $j === $target_n)) {
+                $temp[0] = 'O';
+            }
+
+            if(($i ===$target_n && $j === $target_j)) {
+                $temp[2] = 'O';
+            }
+            print_r($temp);
+        }
+        print_r("\n");
+    }
+}
+
+
+
 floyd($arr);
 print_r($arr);
+
+//show($arr);
 
 ```
 
